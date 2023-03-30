@@ -1,0 +1,6 @@
+Hotspot
+Fingerprint Reader
+Camera
+
+Google Pixel 3a/3a XL
+Xiaomi Poco X3 NFC

@@ -1,0 +1,19 @@
+Automatic boradcasting current location and important
+information like emergency phone number and address.
+    To all nearby peoples(~100 m) so people can find the disabled
+    person and can help him if needed.
+
+Fingerprint sensor is used to control the stick insted of
+switch.
+It has following 3 usage modes.
+    1 Tab- On/Off the interative speaking mode(I)
+    2 Tab- On/Off the auto-speaking mode(II)
+    Long Touch - Speak until the finger is placed in finger
+                print sensor(III)
+
+Smart Object Recognision
+    It detects and speak the most important object in the
+    frame in (II) and (III) mode.
+    In mode (I) it will do the same but if user ask to tell
+    every possible thing visible in frame then it will 
+    name the less important objects also.
