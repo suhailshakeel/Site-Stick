@@ -1,0 +1,7 @@
+items = ['person', 'bus', 'train']
+
+['Item Name', 'Area']
+data = [['person', 107316], ['person', 105300], ['person', 109076], ['person', 105070], ['train', 105726], ['person', 109560], ['person', 105070], ['bus', 105], ['person', 109560], ['bus', 10], ['bus', 0], ['person', 109560]]
+
+Find all unique items with highest area in dataset?
+Find a single item with highest area?

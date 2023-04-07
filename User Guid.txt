@@ -1,0 +1,52 @@
+How USERS will use the stick? 
+    When stick will be delivered to the blind person.
+    1. Turn on the Smart Stick: The user should locate the power button and turn on the device.
+    
+    2. His guardian/relative/friend will open any smart phone and 
+       connect the stick's wifi named as "Smart Stick Not Set"
+    
+    3. Then they will click on a pop-up that will appear on their phone
+       and then a page will open up that will say to click on "Set Up" button
+       to do set up.
+    
+    4. After clicking on "Set Up" button he will be redirected to a page 
+       where his guardian/relative/friend have to fill the username, 
+       password, hint text, address, emergency phone number and have to 
+       give his finger print using phone if phone don't have fingerprint 
+       sensor user can give it using stick's fingerprint sensor.
+    
+    5. Finally, his guardian/relative/friend click on "Save" button and 
+       they will be redirected to the page that will be broadcasted to 
+       everyone.
+    
+    6. And then stick will be turned functional and ready to use using 
+       fingerprint.
+    
+    7. Now, They only need to press on/off button that is physically
+       present on the stick to power on/off the stick.
+
+    8. If user wants to update the details then they have to click on 
+       settings button and have to fill all details again if password or
+       hint text matches all details will be updated.
+    
+    9. Start walking: The user can start walking with the Smart Stick in hand. 
+       As they move, the Smart Stick will detect obstacles and provide audio 
+       feedback to the user.
+     
+   10. Listen to audio feedback: The Smart Stick will provide audio feedback 
+       to the user, informing them of obstacles and changes in their environment. 
+       The user should pay attention to this feedback and adjust their movements 
+       accordingly.
+       The audio will be played in three ways using the fingerprint sensor:
+           I. One Tab- On/Off the interative speaking mode
+           II. Double Tab- On/Off the auto-speaking mode
+           III. Long Touch - Speak until the finger is placed in finger
+                print sensor
+   11. Use the Smart Stick to navigate: The Smart Stick can be used to navigate 
+       through different environments, such as crowded streets, public transportation, 
+       and indoor spaces. The user should rely on the Smart Stick to detect obstacles 
+       and provide guidance. 
+   
+   12. Charge the Smart Stick: The Smart Stick should be charged regularly to ensure 
+       that it remains functional. The user should locate the charging port and connect 
+       the device to a power source.

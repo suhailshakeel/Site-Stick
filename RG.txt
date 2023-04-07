@@ -2,3 +2,6 @@
 201821029073
 202041004894
 202141013921
+https://web.dev/how-to-use-local-https/
+https://github.com/django/daphne
+http://masnun.rocks/2016/11/02/deploying-django-channels-using-daphne/

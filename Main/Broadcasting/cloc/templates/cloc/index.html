@@ -1,0 +1,214 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    <link rel="stylesheet" href="{% static 'c.css' %}">
+    <link rel="icon" href="{% static 'icon.png' %}">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="{% static 'ps.js' %}" defer></script>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+
+    <title>Live Location</title>
+  </head>
+  <body style="overflow: hidden;">
+<!--
+  About- 10
+  Photo- 28
+  Name- 8
+  NDetails- 10
+  Emergency- 8
+  Phone- 10
+  Address- 8
+  Details- 18
+--> 
+    <div class="container-fluid vh-100">
+        <div class="row h-100 box-2">
+            <div class="col-12 col-md-4" id="infod">
+                <div class="container-fluid h-100 p-0">
+                    <div class="row border border-1 box-6" style="height: 10%;">
+                      <div class="col-4 m-auto text-center fs-3 fs-md-2 box-2">
+                        About
+                      </div>
+                    </div>
+                    <div class="row box-3">
+                      <div class="col fs-5 pt-2 d-none d-md-inline">
+                        Photo
+                      </div>
+                    </div>
+                    <div class="row box-1 justify-content-center" id="infod1" style= "height: 28%;">
+                      <div class="col h-100 w-75 p-3 p-md-1 px-0">
+                        <img src="{% static 'test_img.jpg' %}" alt="Profile Photo" class="center" style="object-fit: fill; width: inherit; height: inherit;">
+                      </div>
+                      <div class="col h-100 d-md-none">
+                        <br>
+                        <div class="row">
+                          <div class="col-4">
+                            Name:
+                          </div>
+                          <div class="col">
+                            Amit Kumar
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-4">
+                            Phone:
+                          </div>
+                          <div class="col">
+                            +91 8548102080
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-4">
+                            Address:
+                          </div>
+                          <div class="col">
+                            Lovely Professional University, Jalandhar
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row box-3" style= "height: 8%;">
+                      <div class="col fs-5 pt-2 d-none d-md-inline">
+                        Name
+                      </div>
+                    </div>
+                    <div class="row box-1" style= "height: 7%;">
+                      <div class="col d-none d-md-inline">
+                        Amit Kumar
+                      </div>
+                    </div>
+                    <div class="row box-3" style= "height: 8%;">
+                      <div class="col fs-5 pt-2 d-none d-md-inline">
+                        Emergency Phone Number
+                      </div>
+                    </div>
+                    <div class="row box-1" style= "height: 7%;">
+                      <div class="col d-none d-md-inline">
+                        +91 8548102080
+                      </div>
+                    </div>
+                    <div class="row box-3" style= "height: 8%;">
+                      <div class="col fs-5 pt-2 d-none d-md-inline">
+                        Address
+                      </div>
+                    </div>
+                    <div class="row box-1" style= "height: 24%;">
+                      <div class="col d-none d-md-inline">
+                        Lovely Professional University, Jalandhar
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+<!--
+  L- 16
+  M- 66
+  B- 16
+-->
+            <div class="col-12 col-md-8 box-2 p-0" id="llocs">
+                <div class="container-fluid h-100">
+                  <div class="row box-6 border border-1" id="llocs1" style= "height: 16%;">
+                    <div class="col-12 col-md-4 m-auto text-center fs-3 fs-md-2 box-2">
+                      Live Location
+                    </div>
+                  </div>
+                  
+                  <div class="row">
+                    <div class="col d-none d-md-inline">
+                      &nbsp;
+                    </div>
+                  </div>
+                  
+                  <div class="row box-5" id="llocs2" style= "height: 66%;">
+                    <div class="col-12 m-0 p-0 box-3" id = "loc_display">
+                      
+                      <!-- MAP
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13644.572909453562!2d75.70225625!3d31.24445815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a5f656b39a409%3A0xc203f10474e7ef9!2sSchool%20Of%20Agriculture%20(LPU%20Block%2057)!5e0!3m2!1sen!2sin!4v1679637626550!5m2!1sen!2sin" style="border:0; height:100%; width:100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                      -->
+                      <div class="row fs-4 ms-1" style="height: 33%;">
+                        <div class="col">
+                          Positions
+                        </div>
+                        <div class="col">
+                          [Latitude, Longitude]
+                        </div>
+                      </div>
+                      
+                      <div class="row fs-4 ms-1" style="height: 33%;">
+                        <div class="col">
+                          Targate Location
+                        </div>
+                        <div class="col" id="c_loc">
+                          [0, 0]
+                        </div>
+                      </div>
+
+                      <div class="row fs-4 ms-1" style="height: 33%;">
+                        <div class="col">
+                          Your Location
+                        </div>
+                        <div class="col" id="m_loc">
+                          [0, 0]
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col d-none d-md-inline">
+                      &nbsp;
+                    </div>
+                  </div>
+
+                  <div class="row p-2 p-md-0"  style= "height: 16%;">
+                    <!-- 1 3 4 3 1-->
+
+                    <div class="col-1">
+                      &nbsp;
+                    </div>
+
+                    <div class="col-3">
+                      <center>
+                        <button type="button" class="btn btn-primary" onclick="cancel_f()">Cancel</button>
+                      </center>
+                    </div>
+                    
+                    <div class="col-4">
+                      &nbsp;
+                    </div>
+
+                    <div class="col-3">
+                      <center>
+                        <button type="button" class="btn btn-primary" onclick="start_f()">Follow</button>
+                      </center>
+                    </div>
+
+                    <div class="col-1">
+                      &nbsp;
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col">
+                      &nbsp;
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
