@@ -52,8 +52,9 @@ def dandr():
 
 t = threading.Thread(target=dandr,)
 def start():
-    global key
+    global key, t
     key = 1
+    t = threading.Thread(target=dandr,)
     t.start()
 
 def stop():
@@ -90,4 +91,10 @@ if __name__ == "__main__":
 	time.sleep(10)
 	print(fs_unique(data, CLASSES))
 	stop()
-	print(1)
+ 
+	time.sleep(5)
+ 
+	start()
+	time.sleep(10)
+	print(fs_unique(data, CLASSES))
+	stop()

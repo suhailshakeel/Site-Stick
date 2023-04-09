@@ -1,13 +1,16 @@
 frec = document.getElementById("fbtn");
+image = document.getElementById("image");
+user_name = document.getElementById("name");
+phone = document.getElementById("phone");
+address = document.getElementById("address");
+paswd = document.getElementById("paswd");
+hint = document.getElementById("phint");
+
+var GetFile = new FileReader();
+
+var is_uploaded = 0;
 
 function check_input() {
-    image = document.getElementById("image");
-    user_name = document.getElementById("name");
-    phone = document.getElementById("phone");
-    address = document.getElementById("address");
-    paswd = document.getElementById("paswd");
-    hint = document.getElementById("phint");
-
     flag = 1;
 
     if (user_name.value == ''){
@@ -39,6 +42,9 @@ function check_input() {
         if ((image.files[0].size/1024).toFixed(1) > 512){
             flag = 0;
             alert("Size of the file should be less than 512 kb!");
+        } else{
+            GetFile.readAsDataURL(image.files[0]);
+            GetFile.onload = upload_file;
         }
     }
     if (frec.className == "btn btn-danger"){
@@ -47,7 +53,61 @@ function check_input() {
     }
 
     if (flag == 1){
-        check_rec();
+        upload_details();
+    }
+}
+
+function  upload_file() {
+    const xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "", true);
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.setRequestHeader("X-CSRFToken", getCookie("csrftoken"));
+    var data = JSON.stringify({"id": "image_data", "image": GetFile.result});                                                     
+    xhttp.send(data);
+
+    xhttp.onload = function() {
+        res = JSON.parse(xhttp.responseText);
+        if (res["image"] == "ok"){
+            is_uploaded = 1;
+        }
+    }
+}
+
+function upload_details() {
+    const xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "", true);
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.setRequestHeader("X-CSRFToken", getCookie("csrftoken"));
+
+    s = 0;
+    if (frec.className == "btn btn-success"){
+        s = 1;
+    }
+    console.log(GetFile)
+    var data = JSON.stringify({
+        "id": "save_user_data",
+        "name": user_name.value,
+        "phone": phone.value,
+        "address": address.value,
+        "password": paswd.value,
+        "phint": hint.value,
+        "fp": s
+    });
+
+    console.log(data);
+    xhttp.send(data);
+
+    xhttp.onload = function() {
+        res = JSON.parse(xhttp.responseText);
+        if (res["done"] != 1){
+            if ("msg" in res){
+                alert(res["msg"]);
+            } else{
+                alert("Something went wrong. Please try again!");
+            }
+        } else{
+            window.location.replace("http://"+window.location.host);
+        }
     }
 }
 
@@ -56,7 +116,7 @@ function check_rec() {
     xhttp.open("POST", "", true);
     xhttp.setRequestHeader("Content-Type", "application/json");
     xhttp.setRequestHeader("X-CSRFToken", getCookie("csrftoken"));
-    var data = JSON.stringify({"is_done":0, "time_out": 0});                                                     
+    var data = JSON.stringify({"id": "Fingerprint_REC", "is_done":0, "time_out": 0});                                                     
     xhttp.send(data);
 
     frec.className = "btn btn-warning";
@@ -82,7 +142,7 @@ function check_SSF(){
     xhttp.open("POST", "", true);
     xhttp.setRequestHeader("Content-Type", "application/json");
     xhttp.setRequestHeader("X-CSRFToken", getCookie("csrftoken"));
-    var data = JSON.stringify({"is_done":0, "time_out": 0});                                                     
+    var data = JSON.stringify({"id": "Fingerprint_REC", "is_done":0, "time_out": 0});                                                     
     xhttp.send(data);
 
     xhttp.onload = function() {
