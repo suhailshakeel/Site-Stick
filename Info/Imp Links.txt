@@ -1,3 +1,13 @@
-About RPI 2W:
 https://www.etechnophiles.com/rpi-zero-2w-board-layout-pinout-specs-price/
 
+https://www.sketchpadtech.com/using-the/
+
+https://nodogsplashdocs.readthedocs.io/en/stable/overview.html
+
+https://github.com/nodogsplash/nodogsplash
+
+https://raspberrypi.stackexchange.com/questions/88438/raspberry-pi-as-access-point-with-captive-portal
+
+https://installati.one/install-dpkg-kalilinux/
+
+https://www.howtoinstall.me/ubuntu/18-04/dh-systemd/

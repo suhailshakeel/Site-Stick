@@ -6,11 +6,13 @@ address = document.getElementById("address");
 paswd = document.getElementById("paswd");
 hint = document.getElementById("phint");
 
+//for reading file
 var GetFile = new FileReader();
 
 var is_uploaded = 0;
 
 function check_input() {
+    //Cheacking input details
     flag = 1;
 
     if (user_name.value == ''){
